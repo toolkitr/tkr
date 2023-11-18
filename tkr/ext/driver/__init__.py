@@ -63,8 +63,38 @@ class Driver:
     try:
       return requests.get(self.__file).text
     except: 
-      try: requests.get(self.__file)
+      try: return requests.get(self.__file)
       except: return 'tkr.ext.Driver.FilePathError'
+
+  @resource.notdeprecated
+  def file(self, path: str, *args, **kwargs) -> str:
+    """
+    Create a new file.
+
+    Parameters:
+    path (str): The path of the file.
+
+    Returns:
+    str: The content of the file.
+    """
+    try:
+      with open(path, 'w') as file:
+        file.write(self.__content)
+    except: return 'tkr.ext.Driver.FileError'
+    return self.__content
+
+  @resource.notdeprecated
+  def save(self, path: str, *args, **kwargs) -> str:
+    """
+    Create a new file.
+
+    Parameters:
+    path (str): The path of the file.
+
+    Returns:
+    str: The content of the file.
+    """
+    return self.file(path)
     
   @resource.notdeprecated
   def __call__(self, path: str=None, folder:str='test', *args, **kwargs) -> str:

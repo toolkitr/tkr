@@ -37,7 +37,7 @@ class PostInstall(install):
 setup(
     name='tkr',
     license='MIT',
-    version='0.1.8-9',
+    version='0.1.9',
     author='tlkr.',
     author_email='toolkitr.email@gmail.com',
     description='Python Toolkit',

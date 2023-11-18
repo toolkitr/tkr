@@ -1,0 +1,2 @@
+-> tkr.Tool ) self.id: ID = self.__salt_hash(*, **)
+-> tkr.Tool ) test_id(*, **)

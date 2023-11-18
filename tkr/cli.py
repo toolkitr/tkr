@@ -11,7 +11,7 @@ def main(*args) -> None:
     with open(path_abs, 'r') as file:
       data = json.load(file)
 
-    data['1  `1  '] = 'value'
+    data['key'] = 'value'
 
     with open(path_abs, 'w') as file:
       json.dump(data, file, indent=4)

@@ -11,7 +11,7 @@ __all__: tuple = (
   'notdeprecated',
 )
 
-def deprecated(func: object) -> object:
+def deprecated(func: object, *args, **kwargs) -> object:
   """
   Allows for users to see if a method is deprecated
 
@@ -24,7 +24,7 @@ def deprecated(func: object) -> object:
   func.deprecated = True
   return func
 
-def notdeprecated(func: object) -> object:
+def notdeprecated(func: object, *args, **kwargs) -> object:
   """
   Allows for users to see if a method is deprecated
 

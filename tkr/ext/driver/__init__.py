@@ -94,7 +94,7 @@ class Driver:
     Returns:
     str: The content of the file.
     """
-    return self.file(path)
+    return self.file(path, *args, **kwargs)
     
   @resource.notdeprecated
   def __call__(self, path: str=None, folder:str='test', *args, **kwargs) -> str:

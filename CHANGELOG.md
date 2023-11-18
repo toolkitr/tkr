@@ -13,33 +13,62 @@
 
 All notable changes to tkr will be documented in this file
 
-## [V0.1.9]
+## [V0.2.0]
 
 ### Changed
 ```diff
-Refactored all code, optimized, and fixed small bugs.
+Continued to further optimize and refactor code.
 
-+ tkr.core.coreattrs.json: Fixed file write bug.
-- tkr.ext.exttests: Changed to tkr.ext.driver
++ Fixed some tkr.Driver issues
++ Added tkr.tools / tkr.abc.global_tools
++ Added a save method to tkr.Driver: tkr.Driver.save(file)
 ```
 
 ### Examples
 
-Upgrading to V0.1.8
+Upgrading to V0.2.0
 `pip install --upgrade tkr`
 or Install tkr
-`pip install tkr==0.1.8`
+`pip install tkr==0.2.0`
 
 ```python
 import tkr
-from tkr.ext import tests
 
-driver: tests.Driver = tests.Driver(path='/abc/_tool.py', folder='tkr') # Defaults to test/README.md which provides info on the latest testing files.
+mytool1: tkr.Tool = tkr.Tool(
+    name='foo',
+    method=lambda x: x+1
+)
+
+mytool2: tkr.Tool = tkr.Tool(
+    name='bar',
+    method=lambda y: y+2
+)
+
+print(tkr.tools)
+
+# Output
+
+[<Tool name=foo version=Tool.NoVersion id=Tool.Id.0x7f0db3431690 description=Tool.Description method=<function <lambda> at 0x7f0db34fbe20> type=TOOL.TKR.CLASSIC>, <Tool name=bar version=Tool.NoVersion id=Tool.Id.0x7f0db34300d0 description=Tool.Description method=<function <lambda> at 0x7f0db3277370> type=TOOL.TKR.CLASSIC>, ...]
+```
+
+tkr.Driver:
+
+```python
+import tkr
+
+driver: tkr.Driver = tkr.Driver(
+    path='/abc/_tool.py',  # Defaults to 'README.md' file
+    folder='tkr'           # Defaults to 'test' folder
+)
 print(driver)
 ```
 If you want to update the driver to not create multiple instances do this:
 ```python
-print(driver('otherfeature.py'))
+print(driver('otherfeature', 'otherfolder'))
+```
+If you want to save the drivers file contents do this:
+```python
+driver.save('somefile')
 ```
 
 # Links

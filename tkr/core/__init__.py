@@ -32,11 +32,12 @@ from ..abc import (
                              global_tools_by_method, 
                              global_tools_by_id
 )
-tkr_version:    str       =  '0.1.9'
+
+tkr_version:    str       =  '0.2.0'
 changelog:      ChangeLog =  ChangeLog()
 
 @resource.notdeprecated
-def tkr_setup_hook() -> tuple:
+def tkr_setup_hook(*args, **kwargs) -> tuple:
   """
   Setup hook for tkr.
 
@@ -46,7 +47,7 @@ def tkr_setup_hook() -> tuple:
   return (tkr_version, 'tkr', 'toolkitr.tkr', 'tklr.', 'toolkitr.email@gmail.com', 'Python Toolkit')
 
 @resource.notdeprecated
-def get_changelog(version: str = tkr_version) -> str:
+def get_changelog(version: str = tkr_version, *args, **kwargs) -> str:
   """
   Get the changelog for the given version.
 
@@ -64,7 +65,7 @@ def get_changelog(version: str = tkr_version) -> str:
   return cl_return
 
 @resource.notdeprecated
-def get_tool_by_name(name: str) -> object:
+def get_tool_by_name(name: str, *args, **kwargs) -> object:
   """
   Get the tool by name.
 
@@ -77,7 +78,7 @@ def get_tool_by_name(name: str) -> object:
   return global_tools_by_name.get(name)
 
 @resource.notdeprecated
-def get_tool_by_method(method: object) -> list:
+def get_tool_by_method(method: object, *args, **kwargs) -> list:
   """
   Get the tool by method.
 
@@ -90,7 +91,7 @@ def get_tool_by_method(method: object) -> list:
   return global_tools_by_method.get(method)
 
 @resource.notdeprecated
-def get_tool_by_id(id: str) -> list:
+def get_tool_by_id(id: str, *args, **kwargs) -> list:
   """
   Get the tool by id.
 
@@ -103,7 +104,7 @@ def get_tool_by_id(id: str) -> list:
   return global_tools_by_id.get(id)
 
 @resource.notdeprecated
-def tkr_help_hook(print_help: bool = True) -> str:
+def tkr_help_hook(print_help: bool = True, *args, **kwargs) -> str:
   """
   Help hook for tkr.
 

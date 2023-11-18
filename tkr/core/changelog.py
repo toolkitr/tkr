@@ -25,7 +25,7 @@ class ChangeLog:
     """
     Initialize ChangeLog.
     """
-    self.cl = {'0.1.6': self.v016, '0.1.7': self.v017, '0.1.8': self.v018}
+    self.cl = {'0.1.6': self.v016, '0.1.7': self.v017, '0.1.8': self.v018, '0.1.9': self.v019}
 
   @property
   def v016(self) -> str:
@@ -134,6 +134,54 @@ All notable changes to tkr will be documented in this file
 ### Added
 ```diff
 + tkr.ext.tests.Driver: Pull code or file contents from toolkitr/tkr/<folder='test'>/<file='README.md'>
+```
+
+### Examples
+
+Upgrading to V0.1.8
+`pip install --upgrade tkr`
+or Install tkr
+`pip install tkr==0.1.8`
+
+```python
+import tkr
+from tkr.ext import tests
+
+driver: tests.Driver = tests.Driver(path='/abc/_tool.py', folder='tkr') # Defaults to test/README.md which provides info on the latest testing files.
+print(driver)
+```
+If you want to update the driver to not create multiple instances do this:
+```python
+print(driver('otherfeature.py'))
+```
+
+# Links
+- [Github](https://github.com/toolkitr/tkr)
+- [PyPi](https://pypi.org/project/tkr)
+- [Issues](https://github.com/toolkitr/tkr/issues)
+- [Discussions](https://github.com/toolkitr/tkr/discussions)
+"""
+  @property
+  def v019(self) -> str:
+    """
+    Changelog for version 0.1.9.
+
+    Returns:
+    str: The changelog.
+    """
+    return """
+# Changelog
+
+All notable changes to tkr will be documented in this file
+
+## [V0.1.9]
+
+### Changed
+```diff
+Refactored all code, optimized, and fixed small bugs.
+
++ tkr.core.coreattrs.json: Fixed file write bug.
+- tkr.ext.exttests: Changed to tkr.ext.driver
 ```
 
 ### Examples

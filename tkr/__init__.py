@@ -29,6 +29,7 @@ __all__: tuple = (
   'byid',
   'Help',
   'help',
+  'corepath',
 )
 
 from . import core
@@ -39,6 +40,8 @@ __version__, __name__, __package__, __author__, __email__, __description__ = cor
 Tool            =       abc.Tool
 ToolProxy       =       abc.ToolProxy
 ToolVersion     =       abc.VERSION
+Tools           =       abc.global_tools
+tools           =       abc.global_tools
 changelog       =       core.get_changelog
 ToolByName      =       core.get_tool_by_name
 byname          =       core.get_tool_by_name
@@ -48,14 +51,22 @@ ToolById        =       core.get_tool_by_id
 byid            =       core.get_tool_by_id
 Help            =       core.tkr_help_hook
 help            =       core.tkr_help_hook
+corepath        =       core.path
 
 __annotations__ =       {
               'Tool':         Tool,
               'ToolProxy':    ToolProxy,
               'ToolVersion':  ToolVersion,
+              'Tools':        Tools,
+              'tools':        tools,
               'changelog':    changelog,
               'ToolByName':   ToolByName,
+              'byname':       byname,
               'ToolByMethod': ToolByMethod,
+              'bymethod':     bymethod,
               'ToolById':     ToolById,
-              'help':         help
+              'byid':         byid,
+              'Help':         Help,
+              'help':         help,
+              'corepath':     corepath,
 }

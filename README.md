@@ -1,5 +1,5 @@
 <div id="header">
-  <img src="https://media.discordapp.net/attachments/1171675700055506989/1174869412571009204/image.png?ex=65692967&is=6556b467&hm=cf457d1688e9bce9eda1136c24eb9ba313c09f2819aaf20c54f68518420c3830&=&width=667&height=333" width="400"/>
+  <img src="https://i.ibb.co/gr1sM66/image-removebg-preview-2023-11-16-T193131-291.png" width="500"/>
 </div>
 
 # [TKR - Python Toolkit](https://pypi.org/project/tkr/)

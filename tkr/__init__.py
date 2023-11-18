@@ -20,6 +20,9 @@ Functions:
 __all__: tuple = (
   'Tool',
   'ToolProxy',
+  'ToolVersion',
+  'Tools',
+  'tools',
   'changelog',
   'ToolByName',
   'byname',
@@ -30,10 +33,13 @@ __all__: tuple = (
   'Help',
   'help',
   'corepath',
+  'Driver',
+  'driver'
 )
 
 from . import core
 from . import abc
+from . import ext
 
 __version__, __name__, __package__, __author__, __email__, __description__ = core.tkr_setup_hook()
 
@@ -52,6 +58,8 @@ byid            =       core.get_tool_by_id
 Help            =       core.tkr_help_hook
 help            =       core.tkr_help_hook
 corepath        =       core.path
+Driver          =       ext.tests.Driver
+driver          =       ext.tests.Driver
 
 __annotations__ =       {
               'Tool':         Tool,
@@ -69,4 +77,6 @@ __annotations__ =       {
               'Help':         Help,
               'help':         help,
               'corepath':     corepath,
+              'Driver':       Driver,
+              'driver':       driver,
 }

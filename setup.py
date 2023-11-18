@@ -17,6 +17,17 @@ import pathlib
 from setuptools import setup, find_packages
 from setuptools.command.install import install
 
+path_abs: str = pathlib.Path(__file__).parent.absolute()
+tkr_path: str = f'{path_abs}/tkr/core/__init__.py'
+tkr_version: str = ''
+
+with open(tkr_path, 'r') as file:
+  tkr_version_match: str = [
+    match_test.split('=')[1].strip() for match_test in file.readlines() if match_test.startswith('tkr_version')
+  ]
+  try: tkr_version: str = tkr_version_match[0]
+  except: RuntimeError('No version found.')
+
 class PostInstall(install):
   """
   Post install script.
@@ -41,7 +52,7 @@ setup(
     author='tlkr.',
     author_email='toolkitr.email@gmail.com',
     description='Python Toolkit',
-    long_description=pathlib.Path('README.md').read_text(),
+    long_description=pathlib.Path(f'{path_abs}/README.md').read_text(),
     long_description_content_type='text/markdown',
     url='https://github.com/toolkitr/tkr',
     entry_points={"console_scripts": ["tkr=tkr.cli:main"]},

@@ -33,7 +33,7 @@ from ..abc import (
                              global_tools_by_id
 )
 
-tkr_version:    str       =  '0.2.1a'
+tkr_version:    str       =  '0.2.1a1'
 changelog:      ChangeLog =  ChangeLog()
 
 @resource.notdeprecated

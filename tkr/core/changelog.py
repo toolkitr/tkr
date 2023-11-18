@@ -21,11 +21,11 @@ class ChangeLog:
   """
 
   slots: tuple = ('cl')
-  def __init__(self):
+  def __init__(self, *args, **kwargs):
     """
     Initialize ChangeLog.
     """
-    self.cl = {'0.1.6': self.v016, '0.1.7': self.v017, '0.1.8': self.v018, '0.1.9': self.v019}
+    self.cl = {'0.1.6': self.v016, '0.1.7': self.v017, '0.1.8': self.v018, '0.1.9': self.v019, '0.2.0': self.v020, '0.2.1': self.v021}
 
   @property
   def v016(self) -> str:
@@ -201,6 +201,158 @@ print(driver)
 If you want to update the driver to not create multiple instances do this:
 ```python
 print(driver('otherfeature.py'))
+```
+
+# Links
+- [Github](https://github.com/toolkitr/tkr)
+- [PyPi](https://pypi.org/project/tkr)
+- [Issues](https://github.com/toolkitr/tkr/issues)
+- [Discussions](https://github.com/toolkitr/tkr/discussions)
+"""
+  @property
+  def v020(self) -> str:
+    """
+    Changelog for version 0.2.0.
+    
+    Returns:
+    str: The changelog.
+    """
+    return """
+# Changelog
+
+All notable changes to tkr will be documented in this file
+
+## [V0.2.0]
+
+### Changed
+```diff
+Continued to further optimize and refactor code.
+
++ Fixed some tkr.Driver issues
++ Added tkr.tools / tkr.abc.global_tools
++ Added a save method to tkr.Driver: tkr.Driver.save(file)
+```
+
+### Examples
+
+Upgrading to V0.2.0
+`pip install --upgrade tkr`
+or Install tkr
+`pip install tkr==0.2.0`
+
+```python
+import tkr
+
+mytool1: tkr.Tool = tkr.Tool(
+    name='foo',
+    method=lambda x: x+1
+)
+
+mytool2: tkr.Tool = tkr.Tool(
+    name='bar',
+    method=lambda y: y+2
+)
+
+print(tkr.tools)
+
+# Output
+
+[<Tool name=foo version=Tool.NoVersion id=Tool.Id.0x7f0db3431690 description=Tool.Description method=<function <lambda> at 0x7f0db34fbe20> type=TOOL.TKR.CLASSIC>, <Tool name=bar version=Tool.NoVersion id=Tool.Id.0x7f0db34300d0 description=Tool.Description method=<function <lambda> at 0x7f0db3277370> type=TOOL.TKR.CLASSIC>, ...]
+```
+
+tkr.Driver:
+
+```python
+import tkr
+
+driver: tkr.Driver = tkr.Driver(
+    path='/abc/_tool.py',  # Defaults to 'README.md' file
+    folder='tkr'           # Defaults to 'test' folder
+)
+print(driver)
+```
+If you want to update the driver to not create multiple instances do this:
+```python
+print(driver('otherfeature', 'otherfolder'))
+```
+If you want to save the drivers file contents do this:
+```python
+driver.save('somefile')
+```
+
+# Links
+- [Github](https://github.com/toolkitr/tkr)
+- [PyPi](https://pypi.org/project/tkr)
+- [Issues](https://github.com/toolkitr/tkr/issues)
+- [Discussions](https://github.com/toolkitr/tkr/discussions)
+"""
+  @property
+  def v021(self) -> str:
+    """
+    Changelog for version 0.2.1.
+
+    Returns:
+    str: The changelog.
+    """
+    return """
+# Changelog
+
+All notable changes to tkr will be documented in this file
+
+## [V0.2.1]
+
+### Changed
+```diff
+Continued to further optimize and refactor code.
+
++ Soon to deprecate current changelog / update to new changelog system.
+```
+
+### Examples
+
+Upgrading to V0.2.1
+`pip install --upgrade tkr`
+or Install tkr
+`pip install tkr==0.2.1`
+
+```python
+import tkr
+
+mytool1: tkr.Tool = tkr.Tool(
+    name='foo',
+    method=lambda x: x+1
+)
+
+mytool2: tkr.Tool = tkr.Tool(
+    name='bar',
+    method=lambda y: y+2
+)
+
+print(tkr.tools)
+
+# Output
+
+[<Tool name=foo version=Tool.NoVersion id=Tool.Id.0x7f0db3431690 description=Tool.Description method=<function <lambda> at 0x7f0db34fbe20> type=TOOL.TKR.CLASSIC>, <Tool name=bar version=Tool.NoVersion id=Tool.Id.0x7f0db34300d0 description=Tool.Description method=<function <lambda> at 0x7f0db3277370> type=TOOL.TKR.CLASSIC>, ...]
+```
+
+tkr.Driver:
+
+```python
+import tkr
+
+driver: tkr.Driver = tkr.Driver(
+    path='/abc/_tool.py',  # Defaults to 'README.md' file
+    folder='tkr'           # Defaults to 'test' folder
+)
+print(driver)
+```
+If you want to update the driver to not create multiple instances do this:
+```python
+print(driver('otherfeature', 'otherfolder'))
+```
+If you want to save the drivers file contents do this:
+```python
+driver.save('somefile')
 ```
 
 # Links

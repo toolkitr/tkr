@@ -26,6 +26,7 @@ abc_types:              tuple =  (
 
 VERSION:                str   =  abc_types[1]
 
+global_tools:           list  =  []
 global_tools_by_name:   dict  =  {} 
 global_tools_by_method: dict  =  {}
 global_tools_by_id:     dict  =  {}
@@ -88,6 +89,8 @@ class Tool(ToolProxy):
         global_tools_by_method[self.method].append(self)
     else:
       global_tools_by_method[self.method] = [self]
+
+    global_tools.append(self)
 
   @resource.notdeprecated
   def register(self, method: object = None, name: str='Tool.DefaultName', version: str='Tool.NoVersion', description: str='Tool.Description', type: str = abc_types[1], id: str=None, *args, **kwargs) -> ToolProxy:

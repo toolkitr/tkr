@@ -23,6 +23,8 @@ __all__: tuple = (
     'tkr_setup_hook',
 )
 
+import os, json
+
 from .changelog import ChangeLog
 from .. import resource
 from ..abc import (
@@ -30,7 +32,7 @@ from ..abc import (
                              global_tools_by_method, 
                              global_tools_by_id
 )
-tkr_version:    str       =  '0.1.8-9'
+tkr_version:    str       =  '0.1.9'
 changelog:      ChangeLog =  ChangeLog()
 
 @resource.notdeprecated
@@ -152,7 +154,11 @@ def tkr_help_hook(print_help: bool = True) -> str:
   if print_help == True: print(help_str)
   else: return help_str
 
+attrs: str = 'tkr.coreattrs.WriteStart'
+path: str = str(os.path.abspath(__file__)).replace('__init__.py', 'coreattrs.json')
+
 try:
-  with open(f'.pythonlibs/lib/python3.10/site-packages/tkr/core/coreattrs.json', 'w') as file:
-    file.write(str({"version": tkr_version}))
+  with open(path, 'w') as file:
+    attrs_content: dict = {"version": tkr_version}
+    json.dump(attrs_content, file, indent=4)
 except: attrs: str = 'tkr.coreattrs.WriteFailed'

@@ -67,7 +67,7 @@ class Driver:
       except: return 'tkr.ext.Driver.FilePathError'
 
   @resource.notdeprecated
-  def file(self, path: str, *args, **kwargs) -> str:
+  def file(self, path: str='TKR_TEST_FEATURE.md', *args, **kwargs) -> str:
     """
     Create a new file.
 
@@ -84,7 +84,7 @@ class Driver:
     return self.__content
 
   @resource.notdeprecated
-  def save(self, path: str, *args, **kwargs) -> str:
+  def save(self, path: str='TKR_TEST_FEATURE.md', *args, **kwargs) -> str:
     """
     Create a new file.
 

@@ -13,11 +13,14 @@
 
 All notable changes to tkr will be documented in this file
 
-## [V0.1.8] (V0.1.8-6)
+## [V0.1.9]
 
 ### Changed
 ```diff
-+ tkr.ext.tests.Driver: Pull code or file contents from toolkitr/tkr/<folder='test'>/<file='README.md'>
+Refactored all code, optimized, and fixed small bugs.
+
++ tkr.core.coreattrs.json: Fixed file write bug.
+- tkr.ext.exttests: Changed to tkr.ext.driver
 ```
 
 ### Examples
